@@ -1,0 +1,131 @@
+{ config, pkgs, ... }:
+
+{
+# ╭──────────────────────────────────────────────────────────╮
+# │ Home Manager needs a bit of information about you and    │
+# │ the paths it should                                      │
+# ╰──────────────────────────────────────────────────────────╯
+  imports = [
+    ./fm/yazi.nix
+    ./pkgs.nix
+    ./pkgs/git.nix
+    #./term/foot.nix
+    ./term/kitty.nix
+    ./term/wezterm.nix
+    #./wallpaper/waypaper.nix
+    ./shell/fish.nix
+    ./shell/starship.nix
+     
+  ];
+  # manage.
+  home.username = "rsh";
+  home.homeDirectory = "/home/rsh";
+# ╭──────────────────────────────────────────────────────────╮
+# │ This value determines the Home Manager release that      │
+# │ your configuration is                                    │
+# │ compatible with. This helps avoid breakage when a new    │
+# │ Home Manager release                                     │
+# │                                                          │
+# │ introduces backwards incompatible changes.               │
+# │                                                          │
+# │ You should not change this value, even if you update     │
+# │ Home Manager. If you do                                  │
+# │ want to update the value, then make sure to first check  │
+# │ the Home Manager                                         │
+# │ release notes.                                           │
+# ╰──────────────────────────────────────────────────────────╯
+  home.stateVersion = "24.11"; # Please read the comment before changing.
+
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
+  home.packages = with pkgs; [ 
+    swaynotificationcenter
+  ];
+
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {  };
+# ╭──────────────────────────────────────────────────────────╮
+# │                                                          │
+# │ Home Manager can also manage your environment variables  │
+# │ through                                                  │
+# │ 'home.sessionVariables'. These will be explicitly        │
+# │ sourced when using a                                     │
+# │ shell provided by Home Manager. If you don't want to     │
+# │ manage your shell                                        │
+# │ through Home Manager then you have to manually source    │
+# │ 'hm-session-vars.sh'                                     │
+# │ located at either                                        │
+# │                                                          │
+# │ ~/.nix-profile/etc/profile.d/hm-session-vars.sh          │
+# │                                                          │
+# │ or                                                       │
+# │                                                          │
+# │ ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh│
+# │                                                          │
+# │ or                                                       │
+# │                                                          │
+# │ /etc/profiles/per-user/rsh/etc/profile.d/hm-session-vars.sh│
+# │                                                          │
+# ╰──────────────────────────────────────────────────────────╯
+  home.sessionVariables = {
+    # EDITOR = "emacs";
+    #TERM = "${pkgs.wezterm}/bin/wezterm";
+  };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+  wayland.windowManager.hyprland.enable = true;
+  
+# ╭──────────────────────────────────────────────────────────╮
+# │ stylix                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+  stylix.enable = true;
+  stylix.autoEnable = true;
+# ╭──────────────────────────────────────────────────────────╮
+# │ themes                                                   │
+# ╰──────────────────────────────────────────────────────────╯
+# helios, jabuti, tender, darkmoss, codeschool
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+  
+  stylix.image = ./gruv-astro.png;
+  
+  stylix.targets.swaync.enable = true;
+
+  stylix.targets.kitty.variant256Colors = true;
+
+  stylix.opacity.terminal = 0.90;
+  stylix.cursor.name = "Bibata-Modern-Ice";
+  stylix.cursor.package = pkgs.bibata-cursors;
+
+  stylix.cursor.size = 32;
+
+  stylix.polarity = "dark";
+
+  stylix.fonts.sizes.terminal = 13;
+
+  stylix.fonts.emoji = {
+    name = "Noto Color Emoji";
+    package = pkgs.noto-fonts-color-emoji;
+  };
+  
+  stylix.fonts.monospace = {
+    name = "Noto Sans Mono";
+    package = pkgs.noto-fonts;
+  };
+
+  stylix.fonts.serif = {
+    name = "Noto Serif";
+    package = pkgs.noto-fonts;
+  };
+
+  stylix.fonts.sansSerif = {
+    name = "Noto Sans";
+    package = pkgs.noto-fonts;
+    
+  };
+# ╭──────────────────────────────────────────────────────────╮
+# │ stylix-end                                               │
+# ╰──────────────────────────────────────────────────────────╯
+}
+

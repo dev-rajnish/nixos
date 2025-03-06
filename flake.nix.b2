@@ -1,0 +1,30 @@
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    home-manger.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # helix editor, use the master branch
+    helix.url = "github:helix-editor/helix/master";
+  };
+
+  outputs = inputs@{
+ self,
+ nixpkgs,
+ ...
+ }: {
+    nixosConfigurations.r-nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./nixos/configuration.nix
+
+        # This module works the same as the `specialArgs` parameter we used above
+        # choose one of the two methods to use
+        # { _module.args = { inherit inputs; };}
+      ];
+    };
+  };
+}
