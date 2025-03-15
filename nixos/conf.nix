@@ -1,7 +1,11 @@
-
-{ config, pkgs, inputs, lib, outputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  outputs,
+  ...
+}: {
   boot.loader.systemd-boot.enable = true;
   services.logind.powerKey = "ignore";
   hardware.uinput.enable = true;

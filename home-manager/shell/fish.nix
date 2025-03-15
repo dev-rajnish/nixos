@@ -1,6 +1,8 @@
 {
   programs.fish = {
     enable = true;
-    loginShellInit = "\n";
+    loginShellInit = " \n";
+    shellInit = " ";
+    shellInitLast = " ";
   };
 }

@@ -18,7 +18,7 @@
     ./shell/starship.nix
     ./stylix.nix
     ./yazi.nix
-   #./hyprpanel.nix
+    #./hyprpanel.nix
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -28,7 +28,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
-     home.sessionVariables = {
+  home.sessionVariables = {
     EDITOR = "nvim";
     TERM = "${pkgs.wezterm}/bin/wezterm";
     SHELL = "/home/rsh.nix-profile/bin/fish";
@@ -36,21 +36,21 @@
 
   nixpkgs = {
     # You can add overlays here
-   # overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
+    # overlays = [
+    # Add overlays your own flake exports (from overlays and pkgs dir):
     #  outputs.overlays.additions
-     # outputs.overlays.modifications
-     # outputs.overlays.unstable-packages
+    # outputs.overlays.modifications
+    # outputs.overlays.unstable-packages
 
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+    # You can also add overlays exported from other flakes:
+    # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+    # Or define it inline, for example:
+    # (final: prev: {
+    #   hi = final.hello.overrideAttrs (oldAttrs: {
+    #     patches = [ ./change-hello-to-hi.patch ];
+    #   });
+    # })
     #];
     # Configure your nixpkgs instance
     config = {
@@ -66,16 +66,16 @@
   };
 
   # Add stuff for your user as you see fit:
-   programs.neovim.enable = true;
+  programs.neovim.enable = true;
   # wayland.windowManager.hyprland.enable = true;
-   home.packages = with pkgs; [ 
-fish
-fzf
-vim
-fastfetch
- ];
-#home-manager.useGlobalPkgs = true;
-#home-manager.useUserPackages = true;
+  home.packages = with pkgs; [
+    fish
+    fzf
+    vim
+    fastfetch
+  ];
+  #home-manager.useGlobalPkgs = true;
+  #home-manager.useUserPackages = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

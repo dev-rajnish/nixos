@@ -1,13 +1,10 @@
 {
- config,
-pkgs,
-inputs,
-outputs,
-lib,
-...
-}:
-
-{
-programs.hyprland.enable = true;
-
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  ...
+}: {
+  programs.hyprland.enable = true;
 }

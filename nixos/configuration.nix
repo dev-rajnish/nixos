@@ -26,30 +26,30 @@
     ../kbd/kmonad.nix
     ./hyprland.nix
   ];
-programs.fish.enable = true;
+  programs.fish.enable = true;
   nixpkgs = {
     # You can add overlays here
-  #  overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-   #   outputs.overlays.additions
+    #  overlays = [
+    # Add overlays your own flake exports (from overlays and pkgs dir):
+    #   outputs.overlays.additions
     #  outputs.overlays.modifications
     #  outputs.overlays.unstable-packages
 
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+    # You can also add overlays exported from other flakes:
+    # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+    # Or define it inline, for example:
+    # (final: prev: {
+    #   hi = final.hello.overrideAttrs (oldAttrs: {
+    #     patches = [ ./change-hello-to-hi.patch ];
+    #   });
+    # })
     #];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
-   };
+    };
   };
 
   nix = let
@@ -85,35 +85,34 @@ programs.fish.enable = true;
       # Be sure to change it (using passwd) after rebooting!
       initialPassword = "rr";
       isNormalUser = true;
-      shell = pkgs.fish; 
-     # openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-     # ];
+      shell = pkgs.fish;
+      # openssh.authorizedKeys.keys = [
+      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      # ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [
-"networkmanager" 
-"wheel"
-"input"
-"dbus"
-];
+        "networkmanager"
+        "wheel"
+        "input"
+        "dbus"
+      ];
     };
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
- # services.openssh = {
+  # services.openssh = {
   #  enable = true;
   #  settings = {
-      # Opinionated: forbid root login through SSH.
-     # PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-   #   PasswordAuthentication = false;
-   # };
- # };
+  # Opinionated: forbid root login through SSH.
+  # PermitRootLogin = "no";
+  # Opinionated: use keys only.
+  # Remove if you want to SSH using passwords
+  #   PasswordAuthentication = false;
+  # };
+  # };
 
-  environment.systemPackages = with pkgs; [ 
-    hyprpanel 
+  environment.systemPackages = with pkgs; [
   ];
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";

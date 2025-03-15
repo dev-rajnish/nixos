@@ -1,47 +1,38 @@
-{config, pkgs, nixpkgs, ...}:
-
 {
+  config,
+  pkgs,
+  nixpkgs,
+  ...
+}: {
   home.packages = with pkgs; [
-#                                       ╭╮
-#                                       ││
-   #yazi
-   #pcmanfm
-   #base16-schemes
-   firefox
-   #wofi
-   bluez
-   cava
-   hyprsunset
-   hypridle
-   rofi-wayland
-   htop
-   xfce.thunar
-   satty
-   #qiv
-   #googleearth-pro
-   #tuxpaint
-   ironbar
-   polkit_gnome
-   hyprpolkitagent
-   cmd-polkit
-   polkit
-   waybar
+    #pcmanfm
+    #base16-schemes
+    firefox
+    #wofi
+    bluez
+    cava
+    hyprsunset
+    hypridle
+    rofi-wayland
+    htop
+    xfce.thunar
+    satty
+    #qiv
+    #googleearth-pro
+    #tuxpaint
+    waybar
+    wifite2
+    nh
+    swaynotificationcenter
+    qemu
+    virt-manager
+    libvirt
 
-
-
-
-
-
-
-
-
-#                                    ╰╯
     youtube-music
     vscodium
     pwvucontrol
     brightnessctl
     hyprshot
     gparted
-
   ];
 }

@@ -1,17 +1,15 @@
 {
-config,
-pkgs,
-stylix,
-nixpkgs,
-...
-}:
+  config,
+  pkgs,
+  stylix,
+  nixpkgs,
+  ...
+}: {
+  stylix.enable = true;
+  stylix.autoEnable = true;
 
-{
-stylix.enable = true;
-stylix.autoEnable = true;
-
-# helios, jabuti, tender, darkmoss, codeschool
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  # helios, jabuti, tender, darkmoss, codeschool
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/helios.yaml";
 
   stylix.image = ./gruv-astro.png;
 
@@ -47,9 +45,9 @@ stylix.autoEnable = true;
   stylix.fonts.sansSerif = {
     name = "Noto Sans";
     package = pkgs.noto-fonts;
-
   };
 }
 # ╭──────────────────────────────────────────────────────────╮
 # │ stylix-end                                               │
 # ╰──────────────────────────────────────────────────────────╯
+

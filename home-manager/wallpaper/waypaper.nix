@@ -1,6 +1,9 @@
-{ config, pkgs, ...}:
- #  hyprpanel
-
+{
+  config,
+  pkgs,
+  ...
+}:
+#  hyprpanel
 {
   home.packages = with pkgs; [
     waypaper
@@ -15,7 +18,6 @@
     clipman
     cbonsai
     cmatrix
-
   ];
 
   home.file.".config/waypaper/config.ini".text = ''

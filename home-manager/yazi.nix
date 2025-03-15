@@ -1,16 +1,13 @@
 {
- config,
-pkgs,
-inputs,
-outputs,
-lib,
-...
-}:
-
-
-{
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  ...
+}: {
   programs.yazi.enableFishIntegration = true;
-  
+
   programs.yazi.package = pkgs.yazi;
 
   programs.yazi.enable = true;
@@ -27,7 +24,5 @@ lib,
       sort_reverse = false;
     };
   };
-#for more home manager option search
-
+  #for more home manager option search
 }
-  
